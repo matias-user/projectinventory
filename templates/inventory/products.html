@@ -2,4 +2,21 @@
 
 {% block content %}
     <h2>Todos los productos</h2>
+
+    <table class="table table-striped" >
+        <tr>
+            <td>Nombre</td>
+            <td>Cantidad</td>
+            <td>SKU</td>
+            <td>Acciones</td>
+        </tr>
+        {% for product in products %}
+            <tr>
+                <td>{{product.name}}</td>
+                <td>{{product.quantity}}</td>
+                <td>{{product.sku}}</td>
+                <td></td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

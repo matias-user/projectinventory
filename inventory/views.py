@@ -19,3 +19,7 @@ def create_or_update_product(request, product_id=None):
     
     return render(request, 'inventory/create_update_product.html', {'form':form})
 
+
+def list_products(request):
+    products = Product.objects.all()[:19]
+    return render(request,'inventory/products.html', {'products': products} )
