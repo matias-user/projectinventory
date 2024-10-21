@@ -15,7 +15,12 @@
                 <td>{{product.name}}</td>
                 <td>{{product.quantity}}</td>
                 <td>{{product.sku}}</td>
-                <td></td>
+                <td>
+                    <div class="d-flex justify-content-center gap-4">
+                        <a class="btn btn-warning" href="{% url 'inventory:update' product.id %}" >Editar</a>
+                        <a class="btn btn-danger" href="{% url 'inventory:delete' product.id %}"  >Eliminar</a>
+                    </div>
+                </td>
             </tr>
         {% endfor %}
     </table>

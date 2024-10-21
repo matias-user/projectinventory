@@ -23,3 +23,14 @@ def create_or_update_product(request, product_id=None):
 def list_products(request):
     products = Product.objects.all()[:19]
     return render(request,'inventory/products.html', {'products': products} )
+
+
+def delete_product(request, product_id):
+
+    # product = None
+    try:
+        product = Product.objects.get(id=product_id)
+        product.delete()
+    except Exception as e:
+        print(e)
+    return redirect('inventory:products')
