@@ -1,7 +1,11 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
 <h2>Inicio de sesión</h2>
 
-<form action="" method="POST" >
+<form action="" method="POST" class="mt-4" >
     {% csrf_token %}
     {{ form.as_p }}
-    <button class="btn btn-primary" type="submit" >Iniciar</button>
+    <button class="btn btn-primary" type="submit" >Ingresar</button>
 </form>
+{% endblock %}
