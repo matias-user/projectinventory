@@ -27,7 +27,6 @@ def list_products(request):
 
 def delete_product(request, product_id):
 
-    # product = None
     try:
         product = Product.objects.get(id=product_id)
         product.delete()
