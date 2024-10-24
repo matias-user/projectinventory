@@ -8,9 +8,15 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'inventory:products' %}">Inventario</a>
           </li>
+          {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'common:login' %}">Inicio de sesión</a>
+            <a class="nav-link link-danger" href="{% url 'common:logout' %}">Cerrar sesión</a>
           </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'common:login' %}">Inicio de sesión</a>
+            </li>
+            {% endif %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'common:register' %}">Registro</a>
           </li>
