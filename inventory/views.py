@@ -7,11 +7,15 @@ def create_or_update_product(request, product_id=None):
     if product_id:
         product = get_object_or_404( Product, id=product_id)
     else:
-        product = None
+        product = Product()
+
+    user = request.user
 
     if request.method == 'POST':
         form = ProductForm(request.POST, instance=product)
         if form.is_valid():
+            form.save(commit=False)
+            product.user = user
             form.save()
             return redirect('inventory:create')
     else:
