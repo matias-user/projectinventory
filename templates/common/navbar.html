@@ -10,13 +10,16 @@
           </li>
           {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link link-danger" href="{% url 'common:logout' %}">Cerrar sesión</a>
+            <form action="{% url 'common:logout' %}" method="post">
+              {% csrf_token %}
+              <button class="nav-link link-danger">Cerrar sesión</button>
+            </form>
           </li>
-            {% else %}
+          {% else %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'common:login' %}">Inicio de sesión</a>
             </li>
-            {% endif %}
+          {% endif %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'common:register' %}">Registro</a>
           </li>
